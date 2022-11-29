@@ -12,7 +12,7 @@ public class MagicBall {
         if(answer == 0) {
             System.out.print("Да");
         } else
-            if (answer == 1) {
+            if(answer == 1) {
                 System.out.print("Нет");
         } else {
                 System.out.print("Может быть");
