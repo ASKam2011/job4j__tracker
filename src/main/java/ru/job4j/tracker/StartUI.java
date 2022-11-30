@@ -27,7 +27,19 @@ public class StartUI {
                 } else {
                     System.out.println("Хранилище еще не содержит заявок");
                 }
-            } else if (select == 6) {
+            } else if (select == 2) {
+            System.out.println("=== Edit item ===");
+            System.out.print("Enter id: ");
+            int id = Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter name: ");
+            String name = scanner.nextLine();
+            Item item = new Item(name);
+                if (tracker.replace(id, item)) {
+                    System.out.println("Заявка изменена успешно.");
+                } else {
+                    System.out.println("Ошибка замены заявки.");
+                }
+        } else if (select == 6) {
                 run = false;
             }
         }
@@ -39,6 +51,7 @@ public class StartUI {
                 "Delete item", "Find item by id", "Find items by name",
                 "Exit Program"
         };
+        System.out.println("Menu: ");
         for (int i = 0; i < menu.length; i++) {
             System.out.println(i + ". " + menu[i]);
         }
