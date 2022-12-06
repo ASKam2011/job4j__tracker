@@ -1,6 +1,6 @@
 package ru.job4j.poly;
 
-public class Bus implements Transport {
+public class Bus implements Transport, Vehicle {
     @Override
     public void drive() {
         System.out.println("В Москву");
@@ -14,5 +14,15 @@ public class Bus implements Transport {
     @Override
     public double refuel(double fuel) {
         return fuel * 37.8;
+    }
+
+    @Override
+    public void move() {
+        System.out.println(getClass().getSimpleName() + " - Двигается по скоростным трассам");
+    }
+
+    @Override
+    public void type() {
+        System.out.println(getClass().getSimpleName() + " - Наземный транспорт");
     }
 }
