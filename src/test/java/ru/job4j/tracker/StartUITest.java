@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -60,8 +61,20 @@ class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("Удаление заявки");
         tracker.add(item);
-        int id = item.getId();
-        tracker.delete(id);
-        assertThat(tracker.findById(id)).isNull();
+        String[] answers = {String.valueOf(item.getId())};
+        Input stubInput = new StubInput(answers);
+        StartUI.deleteItem(stubInput, tracker);
+        Assertions.assertNull(tracker.findById(item.getId()));
+    }
+
+    @Test
+    public void whenDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item newFile = new Item("New file");
+        tracker.add(newFile);
+        String[] answers = {String.valueOf(newFile.getId())};
+        Input stubInput = new StubInput(answers);
+        StartUI.deleteItem(stubInput, tracker);
+        Assertions.assertNull(tracker.findById(newFile.getId()));
     }
 }
