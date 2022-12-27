@@ -7,6 +7,7 @@ public class UserStore {
             if (login.equals(user.getUsername())) {
                 rsl = user;
                 System.out.println(rsl);
+                break;
             }
         }
             if (rsl == null) {
