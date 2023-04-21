@@ -26,7 +26,7 @@ public class PasswordValidator {
             if (!Character.isLetter(pass) && !Character.isDigit(pass)) {
                 hasSymbol = true;
             }
-            if (lowerCase & upperCase & hasDigit & hasSymbol) {
+            if (lowerCase && upperCase && hasDigit && hasSymbol) {
                 break;
             }
         }
